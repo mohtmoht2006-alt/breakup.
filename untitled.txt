@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Let's breakup</title>
+</head>
+<body style="text-align:center; margin-top:100px; font-family:Arial;">
+
+    <h2 style="color:#564403;">Let's break up</h2>
+
+    <button id="yesBtn"
+        style="font-size:20px; padding:10px 20px;"
+        onclick="yesClick()">
+        Yes
+    </button>
+
+    <button
+        style="font-size:20px; padding:10px 20px; margin-left:20px;"
+        onclick="noClick()">
+        No
+    </button>
+
+    <p id="suggest" style="color:#940306; margin-top:20px;"></p>
+    <p id="result" style="color:#016d80; font-weight:bold;"></p>
+
+    <script>
+        let yesSize = 20;
+        let count = 0;
+
+        const suggestions = [
+            "Are you sure?",
+            "Please think again…",
+            "Sorry...",
+            "Just click Yes…"
+        ];
+
+        function noClick() {
+            yesSize += 8;
+            document.getElementById("yesBtn").style.fontSize = yesSize + "px";
+
+            if (count < suggestions.length) {
+                document.getElementById("suggest").innerText = suggestions[count];
+                count++;
+            }
+        }
+
+        function yesClick() {
+            document.getElementById("result").innerText = "Thank you for everything.";
+            document.getElementById("suggest").innerText = "";
+        }
+    </script>
+
+</body>
+</html>
